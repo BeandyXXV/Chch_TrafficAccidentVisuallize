@@ -4,12 +4,15 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl
 import folium
 import os
+
+from folium.plugins import MarkerCluster
+
 from csv_information_extractor import CSVDataExtractor
 
 buffer = 0.1  # Adjust this value as needed
 
 # from the csv file, get the min and max values of the X and Y columns
-data_extractor = CSVDataExtractor('CHCH_CAS_Data.csv')
+data_extractor = CSVDataExtractor('data/CHCH_CAS_Data.csv')
 min_lon, max_lon = data_extractor.get_min_max('X')
 min_lat, max_lat = data_extractor.get_min_max('Y')
 
@@ -23,12 +26,12 @@ max_lat += buffer
 m = folium.Map(
     max_bounds=True,
     location=(-43.53, 172.63),
-    zoom_start=12,
     min_lat=min_lat,
     max_lat=max_lat,
     min_lon=min_lon,
     max_lon=max_lon,
 )
+marker_cluster = MarkerCluster().add_to(m)
 
 # add four circles markers to the map base on the min and max values of the X and Y columns
 folium.CircleMarker((max_lat, min_lon), tooltip="Upper Left Corner").add_to(m)
@@ -42,6 +45,7 @@ points = data_extractor.get_yx_tuples()
 # Iterate over the points and add each one to the map
 for point in points:
     folium.CircleMarker(point, radius=1).add_to(m)
+    folium.CircleMarker(point, radius=1).add_to(marker_cluster)
 
 m.save('map.html')
 
