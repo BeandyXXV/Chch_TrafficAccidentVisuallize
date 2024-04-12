@@ -29,6 +29,13 @@ class DataExtractor:
 
         return {'Y': (y_min, y_max), 'X': (x_min, x_max)}
 
+    def get_dataset_info(self):
+        min_year = self.data['crashYear'].min()
+        max_year = self.data['crashYear'].max()
+        total_count = self.data['crashYear'].count()
+
+        return f"The dataset contains {total_count} data points, spanning from {min_year} to {max_year}"
+
     def get_selected_fields(self):
         selected_fields = ['Y', 'X', 'crashSeverity', 'crashYear', 'light', 'speedLimit', 'streetLight', 'weatherA']
         selected_data = self.data[selected_fields]
@@ -45,3 +52,4 @@ if __name__ == '__main__':
     # print(data_extractor.get_max_min_values())
     # print(data_extractor.get_selected_fields()[:5])
     print(data_extractor.get_unique_values())
+    print(data_extractor.get_dataset_info())

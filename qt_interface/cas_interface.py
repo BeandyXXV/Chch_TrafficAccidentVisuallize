@@ -9,6 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QFileDialog
+
+from data.data_extract import DataExtractor
 
 
 class Ui_MainWindow(object):
@@ -49,10 +52,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.file_dir_text)
         self.choose_file_button = QtWidgets.QPushButton(self.map_show_tab)
         self.choose_file_button.setObjectName("choose_file_button")
+        self.choose_file_button.clicked.connect(self.browse_file)
         self.horizontalLayout.addWidget(self.choose_file_button)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.open_file_button = QtWidgets.QPushButton(self.map_show_tab)
         self.open_file_button.setObjectName("open_file_button")
+        self.open_file_button.clicked.connect(self.open_file)
         self.verticalLayout.addWidget(self.open_file_button)
         self.horizontalLayout_4.addLayout(self.verticalLayout)
         self.data_detail_showbox = QtWidgets.QPlainTextEdit(self.map_show_tab)
@@ -310,6 +315,19 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def browse_file(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.ReadOnly
+        file_name, _ = QFileDialog.getOpenFileName(None, "QFileDialog.getOpenFileName()", "", "All Files (*)", options=options)
+        if file_name:
+            self.file_dir_text.setText(file_name)
+
+    def open_file(self):
+        file_path = self.file_dir_text.text()
+        data_extractor = DataExtractor(file_path)
+        dataset_info = data_extractor.get_dataset_info()
+        self.data_detail_showbox.setPlainText(dataset_info)
 
     def update_speed_value(self, value):
         min_value, max_value = value
