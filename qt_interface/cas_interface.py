@@ -12,9 +12,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
+    def __init__(self):
+        self.min_speed_value = 10
+        self.max_speed_value = 110
+        self.min_year_value = 2000
+        self.max_year_value = 2023
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(926, 661)
+        MainWindow.resize(1280, 800)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.centralwidget)
@@ -201,12 +206,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.label_3)
         self.min_speed = QtWidgets.QLCDNumber(self.map_show_tab)
         self.min_speed.setObjectName("min_speed")
+        self.min_speed.display(self.min_speed_value)
         self.horizontalLayout_3.addWidget(self.min_speed)
         self.label_4 = QtWidgets.QLabel(self.map_show_tab)
         self.label_4.setObjectName("label_4")
         self.horizontalLayout_3.addWidget(self.label_4)
         self.max_speed = QtWidgets.QLCDNumber(self.map_show_tab)
         self.max_speed.setObjectName("max_speed")
+        self.max_speed.display(self.max_speed_value)
         self.horizontalLayout_3.addWidget(self.max_speed)
         self.label_5 = QtWidgets.QLabel(self.map_show_tab)
         self.label_5.setObjectName("label_5")
@@ -216,6 +223,8 @@ class Ui_MainWindow(object):
         self.speed_slider = QRangeSlider(self.map_show_tab)
         self.speed_slider.setOrientation(QtCore.Qt.Horizontal)
         self.speed_slider.setObjectName("speed_slider")
+        self.speed_slider.setValue((0, 99))
+        self.speed_slider.valueChanged.connect(self.update_speed_value)
         self.verticalLayout_2.addWidget(self.speed_slider)
         self.verticalLayout_8.addLayout(self.verticalLayout_2)
         self.verticalLayout_7 = QtWidgets.QVBoxLayout()
@@ -237,18 +246,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.addWidget(self.label_6)
         self.min_year = QtWidgets.QLCDNumber(self.map_show_tab)
         self.min_year.setObjectName("min_year")
+        self.min_year.display(self.min_year_value)
         self.horizontalLayout_9.addWidget(self.min_year)
         self.label_7 = QtWidgets.QLabel(self.map_show_tab)
         self.label_7.setObjectName("label_7")
         self.horizontalLayout_9.addWidget(self.label_7)
         self.max_year = QtWidgets.QLCDNumber(self.map_show_tab)
         self.max_year.setObjectName("max_year")
+        self.max_year.display(self.max_year_value)
         self.horizontalLayout_9.addWidget(self.max_year)
         self.horizontalLayout_10.addLayout(self.horizontalLayout_9)
         self.verticalLayout_7.addLayout(self.horizontalLayout_10)
         self.year_slider = QRangeSlider(self.map_show_tab)
         self.year_slider.setOrientation(QtCore.Qt.Horizontal)
+        self.year_slider.setValue((0, 99))
         self.year_slider.setObjectName("year_slider")
+        self.year_slider.valueChanged.connect(self.update_year_value)
         self.verticalLayout_7.addWidget(self.year_slider)
         self.verticalLayout_8.addLayout(self.verticalLayout_7)
         self.verticalLayout_10.addLayout(self.verticalLayout_8)
@@ -293,6 +306,20 @@ class Ui_MainWindow(object):
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    def update_speed_value(self, value):
+        min_value, max_value = value
+        self.min_speed_value = (10 + (min_value / 99) * 100) // 10 * 10
+        self.max_speed_value = (10 + (max_value / 99) * 100) // 10 * 10
+        self.min_speed.display(self.min_speed_value)
+        self.max_speed.display(self.max_speed_value)
+
+    def update_year_value(self, value):
+        min_value, max_value = value
+        self.min_year_value = (2000 + (min_value / 99) * 23)
+        self.max_year_value = (2000 + (max_value / 99) * 23)
+        self.min_year.display(self.min_year_value)
+        self.max_year.display(self.max_year_value)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -333,6 +360,8 @@ class Ui_MainWindow(object):
         self.show_map_button.setText(_translate("MainWindow", "Show map"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.map_show_tab), _translate("MainWindow", "Tab 1"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
+
+
 from PyQt5 import QtWebEngineWidgets
 from qtrangeslider import QRangeSlider
 
