@@ -11,11 +11,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 
-from data.data_extract import DataExtractor
+from data.data_extract import DataExtractor, filter_data
 
 
 class Ui_MainWindow(object):
     def __init__(self):
+        self.data_extractor = None
+        self.filtered_data = None
+        self.filtered_point = []
         self.min_speed_value = 10
         self.max_speed_value = 110
         self.min_year_value = 2000
@@ -328,6 +331,8 @@ class Ui_MainWindow(object):
         data_extractor = DataExtractor(file_path)
         dataset_info = data_extractor.get_dataset_info()
         self.data_detail_showbox.setPlainText(dataset_info)
+        self.data_extractor = DataExtractor(file_path)
+        self.filtered_data = self.data_extractor.data
 
     def update_speed_value(self, value):
         min_value, max_value = value
@@ -355,7 +360,23 @@ class Ui_MainWindow(object):
         self.road_light_filter = [box.text() for box in road_light_checkboxes if box.isChecked()]
         self.crash_severity_filter = [box.text() for box in crash_severity_checkboxes if box.isChecked()]
         self.weather_filter = [box.text() for box in weather_checkboxes if box.isChecked()]
-        print(self.light_filter, self.road_light_filter, self.crash_severity_filter, self.weather_filter)
+        # print(self.light_filter, self.road_light_filter, self.crash_severity_filter, self.weather_filter)
+        self.filter_data_with_all_filters()
+        self.show_map()
+
+    def filter_data_with_all_filters(self):
+        # (Y, X), crashSeverity, crashYear, light, speedLimit, streetLight, weatherA
+        filtered_data = filter_data(self.filtered_data, 'light', self.light_filter)
+        filtered_data = filter_data(filtered_data, 'streetLight', self.road_light_filter)
+        filtered_data = filter_data(filtered_data, 'crashSeverity', self.crash_severity_filter)
+        filtered_data = filter_data(filtered_data, 'weatherA', self.weather_filter)
+        self.filtered_point = [(y, x) for y, x in zip(filtered_data['Y'], filtered_data['X'])]
+
+    def show_map(self):
+        filter_information = f"after filtered, there are {len(self.filtered_point)} left in all data"
+        self.data_detail_showbox.appendPlainText(filter_information)
+
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

@@ -16,6 +16,11 @@ import pandas as pd
 # (Y, X), crashSeverity, crashYear, light, speedLimit, streetLight, weatherA
 
 # class extract_data for the function which relative to data extraction from csv file
+def filter_data(data_frame, column_name, filter_list):
+    filtered_data = data_frame[data_frame[column_name].isin(filter_list)]
+    return filtered_data
+
+
 class DataExtractor:
     def __init__(self, file_path):
         self.file_path = file_path
@@ -51,5 +56,9 @@ if __name__ == '__main__':
     data_extractor = DataExtractor('CHCH_CAS_Data.csv')
     # print(data_extractor.get_max_min_values())
     # print(data_extractor.get_selected_fields()[:5])
-    print(data_extractor.get_unique_values())
-    print(data_extractor.get_dataset_info())
+    # print(data_extractor.get_unique_values())
+    # print(data_extractor.get_dataset_info())
+    twilight_data = filter_data(data_extractor.data, 'light', ['Twilight'])
+    twilight_data = filter_data(twilight_data, 'weatherA', ['Fine'])
+    filtered_point = [(y, x) for y, x in zip(twilight_data['Y'], twilight_data['X'])]
+    print(filtered_point)
