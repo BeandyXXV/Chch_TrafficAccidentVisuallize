@@ -17,6 +17,10 @@ class Ui_MainWindow(object):
         self.max_speed_value = 110
         self.min_year_value = 2000
         self.max_year_value = 2023
+        self.light_filter = []
+        self.road_light_filter = []
+        self.crash_severity_filter = []
+        self.weather_filter = []
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1280, 800)
@@ -269,6 +273,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.addItem(spacerItem6)
         self.show_map_button = QtWidgets.QPushButton(self.map_show_tab)
         self.show_map_button.setObjectName("show_map_button")
+        self.show_map_button.clicked.connect(self.get_filter_key)
         self.verticalLayout_10.addWidget(self.show_map_button)
         self.verticalLayout_11.addLayout(self.verticalLayout_10)
         self.horizontalLayout_11.addLayout(self.verticalLayout_11)
@@ -319,6 +324,20 @@ class Ui_MainWindow(object):
         self.max_year_value = (2000 + (max_value / 99) * 23)
         self.min_year.display(self.min_year_value)
         self.max_year.display(self.max_year_value)
+
+    def get_filter_key(self):
+        light_checkboxes = [self.bright_sun_box, self.dark_box,
+                            self.overcast_box, self.twilight_box, self.light_unknown_box]
+        road_light_checkboxes = [self.null_box, self.on_box, self.off_box, self.road_light_unknown_box]
+        crash_severity_checkboxes = [self.fatal_crash_box, self.serious_crash_box,
+                                     self.non_injury_crash_box, self.minor_crash_box, self.fine_box]
+        weather_checkboxes = [self.heavy_rain_box, self.light_rain_box, self.snow_box, self.mist_or_fog_box,
+                              self.hail_or_sleet_box, self.weather_unknown_box]
+        self.light_filter = [box.text() for box in light_checkboxes if box.isChecked()]
+        self.road_light_filter = [box.text() for box in road_light_checkboxes if box.isChecked()]
+        self.crash_severity_filter = [box.text() for box in crash_severity_checkboxes if box.isChecked()]
+        self.weather_filter = [box.text() for box in weather_checkboxes if box.isChecked()]
+        print(self.light_filter, self.road_light_filter, self.crash_severity_filter, self.weather_filter)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
