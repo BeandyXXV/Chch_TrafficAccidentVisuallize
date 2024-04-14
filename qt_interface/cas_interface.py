@@ -319,6 +319,28 @@ class Ui_MainWindow(object):
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        # Set the default state of the checkboxes
+        self.bright_sun_box.setChecked(True)
+        self.dark_box.setChecked(True)
+        self.overcast_box.setChecked(True)
+        self.twilight_box.setChecked(True)
+        self.light_unknown_box.setChecked(True)
+        self.null_box.setChecked(True)
+        self.on_box.setChecked(True)
+        self.off_box.setChecked(True)
+        self.road_light_unknown_box.setChecked(True)
+        self.fatal_crash_box.setChecked(True)
+        self.serious_crash_box.setChecked(True)
+        self.non_injury_crash_box.setChecked(True)
+        self.minor_crash_box.setChecked(True)
+        self.fine_box.setChecked(True)
+        self.heavy_rain_box.setChecked(True)
+        self.light_rain_box.setChecked(True)
+        self.snow_box.setChecked(True)
+        self.mist_or_fog_box.setChecked(True)
+        self.hail_or_sleet_box.setChecked(True)
+        self.weather_unknown_box.setChecked(True)
+
     def browse_file(self):
         options = QFileDialog.Options()
         options |= QFileDialog.ReadOnly
