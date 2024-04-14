@@ -16,6 +16,8 @@ from data.data_extract import DataExtractor, filter_data
 
 class Ui_MainWindow(object):
     def __init__(self):
+        self.speed_filter = (10, 110)
+        self.year_filter = (2000, 2023)
         self.data_extractor = None
         self.filtered_data = None
         self.filtered_point = []
@@ -362,6 +364,7 @@ class Ui_MainWindow(object):
         self.max_speed_value = (10 + (max_value / 99) * 100) // 10 * 10
         self.min_speed.display(self.min_speed_value)
         self.max_speed.display(self.max_speed_value)
+        self.speed_filter = (self.min_speed_value, self.max_speed_value)
 
     def update_year_value(self, value):
         min_value, max_value = value
@@ -369,6 +372,7 @@ class Ui_MainWindow(object):
         self.max_year_value = (2000 + (max_value / 99) * 23)
         self.min_year.display(self.min_year_value)
         self.max_year.display(self.max_year_value)
+        self.year_filter = (self.min_year_value, self.max_year_value)
 
     def get_filter_key(self):
         """
@@ -395,6 +399,7 @@ class Ui_MainWindow(object):
         # print(self.light_filter, self.road_light_filter, self.crash_severity_filter, self.weather_filter)
         self.filter_data_with_all_filters()
         self.show_map()
+        print(self.filtered_point)
 
     def filter_data_with_all_filters(self):
         # (Y, X), crashSeverity, crashYear, light, speedLimit, streetLight, weatherA
@@ -402,6 +407,14 @@ class Ui_MainWindow(object):
         filtered_data = filter_data(filtered_data, 'streetLight', self.road_light_filter)
         filtered_data = filter_data(filtered_data, 'crashSeverity', self.crash_severity_filter)
         filtered_data = filter_data(filtered_data, 'weatherA', self.weather_filter)
+        # Filter the data based on the year and speed limit
+        # Convert the 'speedLimit' column to int
+        filtered_data['speedLimit'] = filtered_data['speedLimit'].astype(float).astype(int)
+        filtered_data['crashYear'] = filtered_data['crashYear'].astype(int)
+        filtered_data = filtered_data[
+            ((filtered_data['crashYear']) >= self.year_filter[0]) & (filtered_data['crashYear'] <= self.year_filter[1])]
+        filtered_data = filtered_data[(filtered_data['speedLimit'] >= self.speed_filter[0]) & (
+                    filtered_data['speedLimit'] <= self.speed_filter[1])]
         self.filtered_point = [(y, x) for y, x in zip(filtered_data['Y'], filtered_data['X'])]
 
     def show_map(self):

@@ -57,7 +57,18 @@ def replace_null_with_unknown(file_path):
     data = pd.read_csv(file_path)
 
     # Replace 'Null' with 'Unknown' in the 'weatherA' column
-    data['weatherA'] = data['weatherA'].replace('Null', 'Unknown')
+    data['speedLimit'] = data['speedLimit'].replace('Unknown', '0')
+
+    # Write the modified data back to the CSV file
+    data.to_csv(file_path, index=False)
+
+
+def replace_nan_with_unknown(file_path):
+    # Load the data from the CSV file
+    data = pd.read_csv(file_path)
+
+    # Replace NaN with 'Unknown' in all columns
+    data = data.fillna('Unknown')
 
     # Write the modified data back to the CSV file
     data.to_csv(file_path, index=False)
@@ -73,5 +84,5 @@ if __name__ == '__main__':
     # twilight_data = filter_data(twilight_data, 'weatherA', ['Fine'])
     # filtered_point = [(y, x) for y, x in zip(twilight_data['Y'], twilight_data['X'])]
     # print(filtered_point)
-
+    # replace_nan_with_unknown('CHCH_CAS_Data.csv')
     # replace_null_with_unknown('CHCH_CAS_Data.csv')
