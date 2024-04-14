@@ -52,13 +52,26 @@ class DataExtractor:
         return unique_values
 
 
+def replace_null_with_unknown(file_path):
+    # Load the data from the CSV file
+    data = pd.read_csv(file_path)
+
+    # Replace 'Null' with 'Unknown' in the 'weatherA' column
+    data['weatherA'] = data['weatherA'].replace('Null', 'Unknown')
+
+    # Write the modified data back to the CSV file
+    data.to_csv(file_path, index=False)
+
+
 if __name__ == '__main__':
     data_extractor = DataExtractor('CHCH_CAS_Data.csv')
     # print(data_extractor.get_max_min_values())
     # print(data_extractor.get_selected_fields()[:5])
-    # print(data_extractor.get_unique_values())
+    print(data_extractor.get_unique_values())
     # print(data_extractor.get_dataset_info())
-    twilight_data = filter_data(data_extractor.data, 'light', ['Twilight'])
-    twilight_data = filter_data(twilight_data, 'weatherA', ['Fine'])
-    filtered_point = [(y, x) for y, x in zip(twilight_data['Y'], twilight_data['X'])]
-    print(filtered_point)
+    # twilight_data = filter_data(data_extractor.data, 'light', ['Twilight'])
+    # twilight_data = filter_data(twilight_data, 'weatherA', ['Fine'])
+    # filtered_point = [(y, x) for y, x in zip(twilight_data['Y'], twilight_data['X'])]
+    # print(filtered_point)
+
+    # replace_null_with_unknown('CHCH_CAS_Data.csv')

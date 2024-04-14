@@ -349,12 +349,22 @@ class Ui_MainWindow(object):
         self.max_year.display(self.max_year_value)
 
     def get_filter_key(self):
+        """
+        {'crashSeverity': ['Serious Crash', 'Non-Injury Crash', 'Minor Crash', 'Fatal Crash'],
+        'crashYear': [2012, 2011, 2013, 2014, 2015, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
+        'light': ['Bright sun', 'Dark', 'Overcast', 'Twilight', 'Unknown'],
+        'speedLimit': [50.0, 80.0, 70.0, 100.0, 60.0, 40.0, 30.0, 20.0, 10.0, nan, 110.0, 90.0],
+        'streetLight': ['Null', 'On', 'Off', nan],
+        'weatherA': ['Fine', 'Heavy rain', 'Light rain', 'Snow', 'Mist or Fog', 'Null', 'Hail or Sleet']}
+
+        :return:
+        """
         light_checkboxes = [self.bright_sun_box, self.dark_box,
                             self.overcast_box, self.twilight_box, self.light_unknown_box]
         road_light_checkboxes = [self.null_box, self.on_box, self.off_box, self.road_light_unknown_box]
         crash_severity_checkboxes = [self.fatal_crash_box, self.serious_crash_box,
                                      self.non_injury_crash_box, self.minor_crash_box, self.fine_box]
-        weather_checkboxes = [self.heavy_rain_box, self.light_rain_box, self.snow_box, self.mist_or_fog_box,
+        weather_checkboxes = [self.fine_box, self.heavy_rain_box, self.light_rain_box, self.snow_box, self.mist_or_fog_box,
                               self.hail_or_sleet_box, self.weather_unknown_box]
         self.light_filter = [box.text() for box in light_checkboxes if box.isChecked()]
         self.road_light_filter = [box.text() for box in road_light_checkboxes if box.isChecked()]
