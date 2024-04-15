@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-# Form implementation generated from reading ui file 'qt_interface/untitled.ui'
+# Form implementation generated from reading ui file 'qt_interface/cas_ui_design.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,7 +14,10 @@ from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QFileDialog
 
 from data.data_extract import DataExtractor, filter_data
-from folium_test import FoliumMap
+from folium_map_generator import FoliumMap
+
+from PyQt5 import QtWebEngineWidgets
+from qtrangeslider import QRangeSlider
 
 
 class Ui_MainWindow(object):
@@ -33,6 +36,7 @@ class Ui_MainWindow(object):
         self.road_light_filter = []
         self.crash_severity_filter = []
         self.weather_filter = []
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1280, 800)
@@ -350,7 +354,8 @@ class Ui_MainWindow(object):
     def browse_file(self):
         options = QFileDialog.Options()
         options |= QFileDialog.ReadOnly
-        self.file_name, _ = QFileDialog.getOpenFileName(None, "QFileDialog.getOpenFileName()", "", "All Files (*)", options=options)
+        self.file_name, _ = QFileDialog.getOpenFileName(None, "QFileDialog.getOpenFileName()", "", "All Files (*)",
+                                                        options=options)
         if self.file_name:
             self.file_dir_text.setText(self.file_name)
 
@@ -394,7 +399,8 @@ class Ui_MainWindow(object):
         road_light_checkboxes = [self.null_box, self.on_box, self.off_box, self.road_light_unknown_box]
         crash_severity_checkboxes = [self.fatal_crash_box, self.serious_crash_box,
                                      self.non_injury_crash_box, self.minor_crash_box, self.fine_box]
-        weather_checkboxes = [self.fine_box, self.heavy_rain_box, self.light_rain_box, self.snow_box, self.mist_or_fog_box,
+        weather_checkboxes = [self.fine_box, self.heavy_rain_box, self.light_rain_box, self.snow_box,
+                              self.mist_or_fog_box,
                               self.hail_or_sleet_box, self.weather_unknown_box]
         self.light_filter = [box.text() for box in light_checkboxes if box.isChecked()]
         self.road_light_filter = [box.text() for box in road_light_checkboxes if box.isChecked()]
@@ -417,7 +423,7 @@ class Ui_MainWindow(object):
         filtered_data = filtered_data[
             ((filtered_data['crashYear']) >= self.year_filter[0]) & (filtered_data['crashYear'] <= self.year_filter[1])]
         filtered_data = filtered_data[(filtered_data['speedLimit'] >= self.speed_filter[0]) & (
-                    filtered_data['speedLimit'] <= self.speed_filter[1])]
+                filtered_data['speedLimit'] <= self.speed_filter[1])]
         self.filtered_point = [(y, x) for y, x in zip(filtered_data['Y'], filtered_data['X'])]
 
     def show_map(self):
@@ -472,12 +478,9 @@ class Ui_MainWindow(object):
         # self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
 
 
-from PyQt5 import QtWebEngineWidgets
-from qtrangeslider import QRangeSlider
-
-
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
