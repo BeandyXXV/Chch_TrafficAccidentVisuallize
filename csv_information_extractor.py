@@ -39,5 +39,3 @@ class CSVDataExtractor:
                           'street_light': street_light, 'weather': weather}
             self.point_list.append(point_data)
 
-
-if __name__ == '__main__':

@@ -26,7 +26,7 @@ class DataExtractor:
         self.file_path = file_path
         self.data = pd.read_csv(file_path)
 
-    def get_max_min_values(self):
+    def get_max_min_coordinate(self):
         y_max = self.data['Y'].max()
         y_min = self.data['Y'].min()
         x_max = self.data['X'].max()

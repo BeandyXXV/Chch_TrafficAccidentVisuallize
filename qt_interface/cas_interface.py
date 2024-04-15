@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 
 # Form implementation generated from reading ui file 'qt_interface/untitled.ui'
 #
@@ -9,13 +10,16 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QFileDialog
 
 from data.data_extract import DataExtractor, filter_data
+from folium_test import FoliumMap
 
 
 class Ui_MainWindow(object):
     def __init__(self):
+        self.file_name = None
         self.speed_filter = (10, 110)
         self.year_filter = (2000, 2023)
         self.data_extractor = None
@@ -346,9 +350,9 @@ class Ui_MainWindow(object):
     def browse_file(self):
         options = QFileDialog.Options()
         options |= QFileDialog.ReadOnly
-        file_name, _ = QFileDialog.getOpenFileName(None, "QFileDialog.getOpenFileName()", "", "All Files (*)", options=options)
-        if file_name:
-            self.file_dir_text.setText(file_name)
+        self.file_name, _ = QFileDialog.getOpenFileName(None, "QFileDialog.getOpenFileName()", "", "All Files (*)", options=options)
+        if self.file_name:
+            self.file_dir_text.setText(self.file_name)
 
     def open_file(self):
         file_path = self.file_dir_text.text()
@@ -399,7 +403,6 @@ class Ui_MainWindow(object):
         # print(self.light_filter, self.road_light_filter, self.crash_severity_filter, self.weather_filter)
         self.filter_data_with_all_filters()
         self.show_map()
-        print(self.filtered_point)
 
     def filter_data_with_all_filters(self):
         # (Y, X), crashSeverity, crashYear, light, speedLimit, streetLight, weatherA
@@ -420,8 +423,12 @@ class Ui_MainWindow(object):
     def show_map(self):
         filter_information = f"after filtered, there are {len(self.filtered_point)} left in all data"
         self.data_detail_showbox.appendPlainText(filter_information)
-
-
+        cas_map = FoliumMap(self.file_name)
+        cas_map.add_point(self.filtered_point)
+        cas_map.save_map()
+        root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        map_path = os.path.join(root_dir, 'map.html')
+        self.map_view.load(QUrl.fromLocalFile(map_path))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
