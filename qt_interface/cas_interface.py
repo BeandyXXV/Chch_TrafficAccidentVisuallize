@@ -312,9 +312,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_14.setStretch(1, 10)
         self.horizontalLayout_12.addLayout(self.verticalLayout_14)
         self.tabWidget.addTab(self.map_show_tab, "")
-        self.tab_2 = QtWidgets.QWidget()
-        self.tab_2.setObjectName("tab_2")
-        self.tabWidget.addTab(self.tab_2, "")
+        # self.tab_2 = QtWidgets.QWidget()
+        # self.tab_2.setObjectName("tab_2")
+        # self.tabWidget.addTab(self.tab_2, "")
         self.horizontalLayout_8.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -468,8 +468,8 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", "From"))
         self.label_7.setText(_translate("MainWindow", "to"))
         self.show_map_button.setText(_translate("MainWindow", "Show map"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.map_show_tab), _translate("MainWindow", "Tab 1"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.map_show_tab), _translate("MainWindow", "MapShow"))
+        # self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
 
 
 from PyQt5 import QtWebEngineWidgets
