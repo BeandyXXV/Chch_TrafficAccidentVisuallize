@@ -16,9 +16,6 @@ import pandas as pd
 # (Y, X), crashSeverity, crashYear, light, speedLimit, streetLight, weatherA
 
 # class extract_data for the function which relative to data extraction from csv file
-def filter_data(data_frame, column_name, filter_list):
-    filtered_data = data_frame[data_frame[column_name].isin(filter_list)]
-    return filtered_data
 
 
 class DataExtractor:
@@ -72,6 +69,11 @@ def replace_nan_with_unknown(file_path):
 
     # Write the modified data back to the CSV file
     data.to_csv(file_path, index=False)
+
+
+def filter_data(data_frame, column_name, filter_list):
+    filtered_data = data_frame[data_frame[column_name].isin(filter_list)]
+    return filtered_data
 
 
 if __name__ == '__main__':

@@ -316,9 +316,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_14.setStretch(1, 10)
         self.horizontalLayout_12.addLayout(self.verticalLayout_14)
         self.tabWidget.addTab(self.map_show_tab, "")
-        # self.tab_2 = QtWidgets.QWidget()
-        # self.tab_2.setObjectName("tab_2")
-        # self.tabWidget.addTab(self.tab_2, "")
         self.horizontalLayout_8.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -407,8 +404,16 @@ class Ui_MainWindow(object):
         self.crash_severity_filter = [box.text() for box in crash_severity_checkboxes if box.isChecked()]
         self.weather_filter = [box.text() for box in weather_checkboxes if box.isChecked()]
         # print(self.light_filter, self.road_light_filter, self.crash_severity_filter, self.weather_filter)
-        self.filter_data_with_all_filters()
-        self.show_map()
+        try:
+            self.filter_data_with_all_filters()
+
+            self.show_map()
+        except:
+            error_dialog = QtWidgets.QMessageBox()
+            error_dialog.setWindowTitle("Error")
+            error_dialog.setText("You didn't open any data.")
+            error_dialog.setIcon(QtWidgets.QMessageBox.Critical)
+            error_dialog.exec_()
 
     def filter_data_with_all_filters(self):
         # (Y, X), crashSeverity, crashYear, light, speedLimit, streetLight, weatherA
