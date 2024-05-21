@@ -1,10 +1,6 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtCore import QUrl
 import folium
 import os
-from data.data_extract import DataExtractor
+from data_processing import DataExtractor
 
 
 class FoliumMap:

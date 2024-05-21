@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 
 # Form implementation generated from reading ui file 'qt_interface/cas_ui_design.ui'
 #
@@ -10,32 +9,17 @@ import os
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QUrl
-from PyQt5.QtWidgets import QFileDialog
-
-from data.data_extract import DataExtractor, filter_data
-from folium_map_generator import FoliumMap
 
 from PyQt5 import QtWebEngineWidgets
 from qtrangeslider import QRangeSlider
 
+from ui_function import UiFunction
+
 
 class Ui_MainWindow(object):
+
     def __init__(self):
-        self.file_name = None
-        self.speed_filter = (10, 110)
-        self.year_filter = (2000, 2023)
-        self.data_extractor = None
-        self.filtered_data = None
-        self.filtered_point = []
-        self.min_speed_value = 10
-        self.max_speed_value = 110
-        self.min_year_value = 2000
-        self.max_year_value = 2023
-        self.light_filter = []
-        self.road_light_filter = []
-        self.crash_severity_filter = []
-        self.weather_filter = []
+        self.ui_function = UiFunction(self)
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -65,12 +49,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.file_dir_text)
         self.choose_file_button = QtWidgets.QPushButton(self.map_show_tab)
         self.choose_file_button.setObjectName("choose_file_button")
-        self.choose_file_button.clicked.connect(self.browse_file)
+        self.choose_file_button.clicked.connect(self.ui_function.browse_file)
         self.horizontalLayout.addWidget(self.choose_file_button)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.open_file_button = QtWidgets.QPushButton(self.map_show_tab)
         self.open_file_button.setObjectName("open_file_button")
-        self.open_file_button.clicked.connect(self.open_file)
+        self.open_file_button.clicked.connect(self.ui_function.open_file)
         self.verticalLayout.addWidget(self.open_file_button)
         self.horizontalLayout_4.addLayout(self.verticalLayout)
         self.data_detail_showbox = QtWidgets.QPlainTextEdit(self.map_show_tab)
@@ -228,14 +212,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.label_3)
         self.min_speed = QtWidgets.QLCDNumber(self.map_show_tab)
         self.min_speed.setObjectName("min_speed")
-        self.min_speed.display(self.min_speed_value)
+        self.min_speed.display(0)
         self.horizontalLayout_3.addWidget(self.min_speed)
         self.label_4 = QtWidgets.QLabel(self.map_show_tab)
         self.label_4.setObjectName("label_4")
         self.horizontalLayout_3.addWidget(self.label_4)
         self.max_speed = QtWidgets.QLCDNumber(self.map_show_tab)
         self.max_speed.setObjectName("max_speed")
-        self.max_speed.display(self.max_speed_value)
+        self.max_speed.display(0)
         self.horizontalLayout_3.addWidget(self.max_speed)
         self.label_5 = QtWidgets.QLabel(self.map_show_tab)
         self.label_5.setObjectName("label_5")
@@ -246,7 +230,7 @@ class Ui_MainWindow(object):
         self.speed_slider.setOrientation(QtCore.Qt.Horizontal)
         self.speed_slider.setObjectName("speed_slider")
         self.speed_slider.setValue((0, 99))
-        self.speed_slider.valueChanged.connect(self.update_speed_value)
+        self.speed_slider.valueChanged.connect(self.ui_function.update_speed_value)
         self.verticalLayout_2.addWidget(self.speed_slider)
         self.verticalLayout_8.addLayout(self.verticalLayout_2)
         self.verticalLayout_7 = QtWidgets.QVBoxLayout()
@@ -268,14 +252,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.addWidget(self.label_6)
         self.min_year = QtWidgets.QLCDNumber(self.map_show_tab)
         self.min_year.setObjectName("min_year")
-        self.min_year.display(self.min_year_value)
+        self.min_year.display(0)
         self.horizontalLayout_9.addWidget(self.min_year)
         self.label_7 = QtWidgets.QLabel(self.map_show_tab)
         self.label_7.setObjectName("label_7")
         self.horizontalLayout_9.addWidget(self.label_7)
         self.max_year = QtWidgets.QLCDNumber(self.map_show_tab)
         self.max_year.setObjectName("max_year")
-        self.max_year.display(self.max_year_value)
+        self.max_year.display(0)
         self.horizontalLayout_9.addWidget(self.max_year)
         self.horizontalLayout_10.addLayout(self.horizontalLayout_9)
         self.verticalLayout_7.addLayout(self.horizontalLayout_10)
@@ -283,7 +267,7 @@ class Ui_MainWindow(object):
         self.year_slider.setOrientation(QtCore.Qt.Horizontal)
         self.year_slider.setValue((0, 99))
         self.year_slider.setObjectName("year_slider")
-        self.year_slider.valueChanged.connect(self.update_year_value)
+        self.year_slider.valueChanged.connect(self.ui_function.update_year_value)
         self.verticalLayout_7.addWidget(self.year_slider)
         self.verticalLayout_8.addLayout(self.verticalLayout_7)
         self.verticalLayout_10.addLayout(self.verticalLayout_8)
@@ -291,7 +275,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.addItem(spacerItem6)
         self.show_map_button = QtWidgets.QPushButton(self.map_show_tab)
         self.show_map_button.setObjectName("show_map_button")
-        self.show_map_button.clicked.connect(self.get_filter_key)
+        self.show_map_button.clicked.connect(self.ui_function.start_filter)
         self.verticalLayout_10.addWidget(self.show_map_button)
         self.verticalLayout_11.addLayout(self.verticalLayout_10)
         self.horizontalLayout_11.addLayout(self.verticalLayout_11)
@@ -348,98 +332,6 @@ class Ui_MainWindow(object):
         self.hail_or_sleet_box.setChecked(True)
         self.weather_unknown_box.setChecked(True)
 
-    def browse_file(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.ReadOnly
-        self.file_name, _ = QFileDialog.getOpenFileName(None, "QFileDialog.getOpenFileName()", "", "All Files (*)",
-                                                        options=options)
-        if self.file_name:
-            self.file_dir_text.setText(self.file_name)
-
-    def open_file(self):
-        file_path = self.file_dir_text.text()
-        data_extractor = DataExtractor(file_path)
-        dataset_info = data_extractor.get_dataset_info()
-        self.data_detail_showbox.setPlainText(dataset_info)
-        self.data_extractor = DataExtractor(file_path)
-        self.filtered_data = self.data_extractor.data
-
-    def update_speed_value(self, value):
-        min_value, max_value = value
-        self.min_speed_value = (10 + (min_value / 99) * 100) // 10 * 10
-        self.max_speed_value = (10 + (max_value / 99) * 100) // 10 * 10
-        self.min_speed.display(self.min_speed_value)
-        self.max_speed.display(self.max_speed_value)
-        self.speed_filter = (self.min_speed_value, self.max_speed_value)
-
-    def update_year_value(self, value):
-        min_value, max_value = value
-        self.min_year_value = (2000 + (min_value / 99) * 23)
-        self.max_year_value = (2000 + (max_value / 99) * 23)
-        self.min_year.display(self.min_year_value)
-        self.max_year.display(self.max_year_value)
-        self.year_filter = (self.min_year_value, self.max_year_value)
-
-    def get_filter_key(self):
-        """
-        {'crashSeverity': ['Serious Crash', 'Non-Injury Crash', 'Minor Crash', 'Fatal Crash'],
-        'crashYear': [2012, 2011, 2013, 2014, 2015, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
-        'light': ['Bright sun', 'Dark', 'Overcast', 'Twilight', 'Unknown'],
-        'speedLimit': [50.0, 80.0, 70.0, 100.0, 60.0, 40.0, 30.0, 20.0, 10.0, nan, 110.0, 90.0],
-        'streetLight': ['Null', 'On', 'Off', nan],
-        'weatherA': ['Fine', 'Heavy rain', 'Light rain', 'Snow', 'Mist or Fog', 'Null', 'Hail or Sleet']}
-
-        :return:
-        """
-        light_checkboxes = [self.bright_sun_box, self.dark_box,
-                            self.overcast_box, self.twilight_box, self.light_unknown_box]
-        road_light_checkboxes = [self.null_box, self.on_box, self.off_box, self.road_light_unknown_box]
-        crash_severity_checkboxes = [self.fatal_crash_box, self.serious_crash_box,
-                                     self.non_injury_crash_box, self.minor_crash_box, self.fine_box]
-        weather_checkboxes = [self.fine_box, self.heavy_rain_box, self.light_rain_box, self.snow_box,
-                              self.mist_or_fog_box,
-                              self.hail_or_sleet_box, self.weather_unknown_box]
-        self.light_filter = [box.text() for box in light_checkboxes if box.isChecked()]
-        self.road_light_filter = [box.text() for box in road_light_checkboxes if box.isChecked()]
-        self.crash_severity_filter = [box.text() for box in crash_severity_checkboxes if box.isChecked()]
-        self.weather_filter = [box.text() for box in weather_checkboxes if box.isChecked()]
-        # print(self.light_filter, self.road_light_filter, self.crash_severity_filter, self.weather_filter)
-        try:
-            self.filter_data_with_all_filters()
-
-            self.show_map()
-        except:
-            error_dialog = QtWidgets.QMessageBox()
-            error_dialog.setWindowTitle("Error")
-            error_dialog.setText("You didn't open any data.")
-            error_dialog.setIcon(QtWidgets.QMessageBox.Critical)
-            error_dialog.exec_()
-
-    def filter_data_with_all_filters(self):
-        # (Y, X), crashSeverity, crashYear, light, speedLimit, streetLight, weatherA
-        filtered_data = filter_data(self.filtered_data, 'light', self.light_filter)
-        filtered_data = filter_data(filtered_data, 'streetLight', self.road_light_filter)
-        filtered_data = filter_data(filtered_data, 'crashSeverity', self.crash_severity_filter)
-        filtered_data = filter_data(filtered_data, 'weatherA', self.weather_filter)
-        # Filter the data based on the year and speed limit
-        # Convert the 'speedLimit' column to int
-        filtered_data['speedLimit'] = filtered_data['speedLimit'].astype(float).astype(int)
-        filtered_data['crashYear'] = filtered_data['crashYear'].astype(int)
-        filtered_data = filtered_data[
-            ((filtered_data['crashYear']) >= self.year_filter[0]) & (filtered_data['crashYear'] <= self.year_filter[1])]
-        filtered_data = filtered_data[(filtered_data['speedLimit'] >= self.speed_filter[0]) & (
-                filtered_data['speedLimit'] <= self.speed_filter[1])]
-        self.filtered_point = [(y, x) for y, x in zip(filtered_data['Y'], filtered_data['X'])]
-
-    def show_map(self):
-        filter_information = f"after filtered, there are {len(self.filtered_point)} left in all data"
-        self.data_detail_showbox.appendPlainText(filter_information)
-        cas_map = FoliumMap(self.file_name)
-        cas_map.add_point(self.filtered_point)
-        cas_map.save_map()
-        root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        map_path = os.path.join(root_dir, 'map.html')
-        self.map_view.load(QUrl.fromLocalFile(map_path))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -480,7 +372,6 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "to"))
         self.show_map_button.setText(_translate("MainWindow", "Show map"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.map_show_tab), _translate("MainWindow", "MapShow"))
-        # self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
 
 
 if __name__ == "__main__":
