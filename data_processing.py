@@ -132,17 +132,3 @@ def filter_data(data_frame, column_name, filter_list):
     """
     filtered_data = data_frame[data_frame[column_name].isin(filter_list)]
     return filtered_data
-
-
-if __name__ == '__main__':
-    data_extractor = DataExtractor('CHCH_CAS_Data.csv')
-    # print(data_extractor.get_max_min_values())
-    # print(data_extractor.get_selected_fields()[:5])
-    print(data_extractor.get_unique_values())
-    # print(data_extractor.get_dataset_info())
-    # twilight_data = filter_data(data_extractor.data, 'light', ['Twilight'])
-    # twilight_data = filter_data(twilight_data, 'weatherA', ['Fine'])
-    # filtered_point = [(y, x) for y, x in zip(twilight_data['Y'], twilight_data['X'])]
-    # print(filtered_point)
-    # replace_nan_with_unknown('CHCH_CAS_Data.csv')
-    # replace_null_with_unknown('CHCH_CAS_Data.csv')

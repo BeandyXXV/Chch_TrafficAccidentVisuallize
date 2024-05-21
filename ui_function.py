@@ -16,6 +16,7 @@ class UiFunction:
     """
     def __init__(self, ui):
         self.ui = ui
+        self.data_extractor = None
         self.min_speed_value = 0
         self.max_speed_value = 0
         self.min_year_value = 0
@@ -131,7 +132,7 @@ class UiFunction:
         Show every filtered data points on Folium map, and load it to widget.
         :return: None
         """
-        cas_map = FoliumMap(self.file_name)
+        cas_map = FoliumMap(self.data_extractor)
         cas_map.add_point(self.filtered_point)
         cas_map.save_map()
         current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -178,7 +179,3 @@ class UiFunction:
             error_dialog.setText("You didn't open any data.")
             error_dialog.setIcon(QtWidgets.QMessageBox.Critical)
             error_dialog.exec_()
-
-
-
-

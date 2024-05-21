@@ -4,11 +4,15 @@ from data_processing import DataExtractor
 
 
 class FoliumMap:
-    def __init__(self, data_path):
+    def __init__(self, data_extractor):
+        """
+        generate the map of Christchurch and set the move limitation.
+        :param data_extractor: dataset
+        """
+        self.data_extractor = data_extractor
         buffer = 0.1
-        data_extractor = DataExtractor(data_path)
-        min_lon, max_lon = data_extractor.get_max_min_coordinate()['X']
-        min_lat, max_lat = data_extractor.get_max_min_coordinate()['Y']
+        min_lon, max_lon = self.data_extractor.get_max_min_coordinate()['X']
+        min_lat, max_lat = self.data_extractor.get_max_min_coordinate()['Y']
         # Add a buffer to the min and max values
         min_lon -= buffer
         max_lon += buffer
@@ -31,10 +35,19 @@ class FoliumMap:
         folium.CircleMarker((max_lat, max_lon), tooltip="Upper Right Corner").add_to(self.m)
 
     def add_point(self, point_list):
+        """
+        add the point to the map, base on the point list
+        :param point_list: point list
+        :return: None
+        """
         for point in point_list:
             folium.CircleMarker(point, radius=4).add_to(self.m)
 
     def save_map(self):
+        """
+        save map to html file
+        :return: None
+        """
         root_dir = os.path.dirname(os.path.abspath(__file__))  # get the project root directory
         map_path = os.path.join(root_dir, 'map.html')  # create the full path
         self.m.save(map_path)  # save the map to the root directory

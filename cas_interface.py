@@ -373,13 +373,3 @@ class Ui_MainWindow(object):
         self.show_map_button.setText(_translate("MainWindow", "Show map"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.map_show_tab), _translate("MainWindow", "MapShow"))
 
-
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
