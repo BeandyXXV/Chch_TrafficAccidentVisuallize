@@ -2,7 +2,7 @@ import sys
 
 from PyQt5 import QtWidgets
 
-from cas_interface import Ui_MainWindow
+from user_interface import Ui_MainWindow
 
 
 app = QtWidgets.QApplication(sys.argv)

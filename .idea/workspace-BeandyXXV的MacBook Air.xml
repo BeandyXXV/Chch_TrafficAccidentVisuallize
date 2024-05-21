@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4ce72d49-7a82-489b-9556-11f185dd58f2" name="Changes" comment="remove the original whole data.">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_function.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Chch_TrafficAccidentVisuallize.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Chch_TrafficAccidentVisuallize.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/CHCH_CAS_Data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/CHCH_CAS_Data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_extract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/folium_map_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/folium_map_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qt_interface/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/qt_interface/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qt_interface/cas_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/cas_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qt_interface/cas_ui_design.ui" beforeDir="false" afterPath="$PROJECT_DIR$/qt_interface/cas_ui_design.ui" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;BeandyXXV&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/BeandyXXV/Chch_TrafficAccidentVisuallize.git&quot;,
+    &quot;accountId&quot;: &quot;7dbb9635-3e2e-49ab-a369-786daa6d68c3&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/qt_interface/cas_interface.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2efHNIhtRe2KAb2PVtGBn7TGrvE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.cas_interface (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.cas_interface.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cas_ui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cas_ui_new.executor&quot;: &quot;Run&quot;,
+    &quot;Python.csv_information_extractor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data_extract.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.demowidget.executor&quot;: &quot;Run&quot;,
+    &quot;Python.filter_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.folium_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pyqt_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.realtime_test.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.test_ui.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Andrew/Documents/UC/DATA_401&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Andrew\OneDrive - University of Canterbury\COSC_480\Project\Chch_TrafficAccidentVisuallize" />
+      <recent name="C:\Users\Andrew\OneDrive - University of Canterbury\COSC_480\Project\Chch_TrafficAccidentVisuallize\qt_interface" />
+      <recent name="C:\Users\Andrew\OneDrive - University of Canterbury\COSC_480\Project\Chch_TrafficAccidentVisuallize\data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.cas_interface">
+    <configuration name="cas_interface" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Chch_TrafficAccidentVisuallize" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/qt_interface" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Andrew\OneDrive - University of Canterbury\COSC_480\Project\Chch_TrafficAccidentVisuallize\cas_interface.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cas_interface" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Chch_TrafficAccidentVisuallize" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/qt_interface" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Andrew\OneDrive - University of Canterbury\COSC_480\Project\Chch_TrafficAccidentVisuallize\cas_interface.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cas_ui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Chch_TrafficAccidentVisuallize" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/qt_interface" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/qt_interface/cas_ui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="data_extract" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Chch_TrafficAccidentVisuallize" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Andrew\OneDrive - University of Canterbury\COSC_480\Project\Chch_TrafficAccidentVisuallize\data_extract.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="demowidget" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Chch_TrafficAccidentVisuallize" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/demowidget.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.data_extract" />
+        <item itemvalue="Python.cas_interface" />
+        <item itemvalue="Python.demowidget" />
+        <item itemvalue="Python.cas_ui" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ce72d49-7a82-489b-9556-11f185dd58f2" name="Changes" comment="" />
+      <created>1712288671731</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712288671731</updated>
+      <workItem from="1712288672860" duration="711000" />
+      <workItem from="1712301430768" duration="267000" />
+      <workItem from="1712301712816" duration="5106000" />
+      <workItem from="1712445483210" duration="3626000" />
+      <workItem from="1712524560113" duration="11174000" />
+      <workItem from="1712565586384" duration="2337000" />
+      <workItem from="1712742333917" duration="2231000" />
+      <workItem from="1712781887783" duration="4369000" />
+      <workItem from="1712825854512" duration="4307000" />
+      <workItem from="1712869276441" duration="8223000" />
+      <workItem from="1712906372436" duration="5463000" />
+      <workItem from="1712958222869" duration="5456000" />
+      <workItem from="1713083653731" duration="4170000" />
+      <workItem from="1713128317708" duration="165000" />
+      <workItem from="1713128673156" duration="4813000" />
+      <workItem from="1713171584709" duration="3529000" />
+      <workItem from="1713215221570" duration="5303000" />
+      <workItem from="1713915756143" duration="1689000" />
+      <workItem from="1714024027967" duration="149000" />
+      <workItem from="1714339276990" duration="6000" />
+      <workItem from="1714517007211" duration="901000" />
+      <workItem from="1714704299291" duration="41000" />
+      <workItem from="1715051948935" duration="537000" />
+      <workItem from="1715052546179" duration="2644000" />
+      <workItem from="1715211019621" duration="149000" />
+      <workItem from="1715211176487" duration="1415000" />
+      <workItem from="1716090858280" duration="9244000" />
+      <workItem from="1716257769358" duration="2512000" />
+      <workItem from="1716277258266" duration="4740000" />
+    </task>
+    <task id="LOCAL-00001" summary="remove the original whole data.">
+      <option name="closed" value="true" />
+      <created>1712288982109</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712288982109</updated>
+    </task>
+    <task id="LOCAL-00002" summary="remove the original whole data.">
+      <option name="closed" value="true" />
+      <created>1712289115093</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712289115093</updated>
+    </task>
+    <task id="LOCAL-00003" summary="remove the original whole data.">
+      <option name="closed" value="true" />
+      <created>1712289366564</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712289366564</updated>
+    </task>
+    <task id="LOCAL-00004" summary="finish map limitation, test pyqt read file and show points.">
+      <option name="closed" value="true" />
+      <created>1712306738966</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712306738966</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="remove the original whole data." />
+    <MESSAGE value="finish map limitation, test pyqt read file and show points." />
+    <option name="LAST_COMMIT_MESSAGE" value="finish map limitation, test pyqt read file and show points." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/miniconda3/envs/cosc480/Lib/site-packages/qtrangeslider/_generic_slider.py</url>
+          <line>137</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/miniconda3/envs/cosc480/Lib/site-packages/qtrangeslider/_generic_slider.py</url>
+          <line>132</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="filtered_data" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$data_extract.coverage" NAME="data_extract Coverage Results" MODIFIED="1713134612131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$filter_data.coverage" NAME="filter_data Coverage Results" MODIFIED="1712545471423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$pyqt_test.coverage" NAME="pyqt_test Coverage Results" MODIFIED="1712528759506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$cas_interface__1_.coverage" NAME="cas_interface (1) Coverage Results" MODIFIED="1716262963636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qt_interface" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$csv_information_extractor.coverage" NAME="csv_information_extractor Coverage Results" MODIFIED="1712542109505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$realtime_test.coverage" NAME="realtime_test Coverage Results" MODIFIED="1712532796886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$test_ui.coverage" NAME="test_ui Coverage Results" MODIFIED="1712544903017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$cas_ui_new.coverage" NAME="cas_interface Coverage Results" MODIFIED="1712911706392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qt_interface" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$cas_ui.coverage" NAME="cas_ui Coverage Results" MODIFIED="1712827317063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qt_interface" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$demowidget.coverage" NAME="demowidget Coverage Results" MODIFIED="1712906828760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/Chch_TrafficAccidentVisuallize$folium_test.coverage" NAME="folium_test Coverage Results" MODIFIED="1712529397466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

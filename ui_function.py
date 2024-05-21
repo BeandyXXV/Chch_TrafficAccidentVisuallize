@@ -71,7 +71,7 @@ class UiFunction:
         except Exception as e:
             error_dialog = QtWidgets.QMessageBox()
             error_dialog.setWindowTitle("Error")
-            error_dialog.setText(f"An unexpected error occurred: {e}")
+            error_dialog.setText(f"Please choose a valid file.")
             error_dialog.setIcon(QtWidgets.QMessageBox.Critical)
             error_dialog.exec_()
 
