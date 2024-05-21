@@ -43,7 +43,7 @@ pip install -r requirement.txt
 
 ### Interface Information
 
-![image-20240522102507615](readme_img\interface_informaton.png)
+![image-20240522102507615](readme_img/interface_informaton.png)
 
 ### Operation Demo
 
