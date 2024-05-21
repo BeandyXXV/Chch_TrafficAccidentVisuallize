@@ -71,6 +71,7 @@ The first step in building this project was designing a feasible user interface 
 Since Folium does not support real-time refresh, the user's filter information cannot be updated in real-time; the map must be manually regenerated.
 ### Learning Git and GitHub
 * The project uses Git for version control and is synchronized with GitHub. While developing the project, I learned how to use Git effectively.
+* The Github link of my project: https://github.com/BeandyXXV/Chch_TrafficAccidentVisuallize?tab=readme-ov-file
 ## Future work
 1. Add a data analysis module to analyze patterns in the existing data.
 2. Integrate AI models to predict the likelihood of accidents on specific routes, helping people avoid accidents.
