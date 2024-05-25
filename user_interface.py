@@ -13,13 +13,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5 import QtWebEngineWidgets
 from qtrangeslider import QRangeSlider
 
-from ui_function import UiFunction
+from ui_handler import UiHandler
 
 
 class Ui_MainWindow(object):
 
     def __init__(self):
-        self.ui_function = UiFunction(self)
+        self.ui_function = UiHandler(self)
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")

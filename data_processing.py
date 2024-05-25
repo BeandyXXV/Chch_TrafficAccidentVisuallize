@@ -64,7 +64,7 @@ class DataExtractor:
 
     def get_unique_values(self):
         """
-        get the unique values from each fields.
+        get the unique values from each field.
         :return: None
         """
         fields = ['crashSeverity', 'crashYear', 'light', 'speedLimit', 'streetLight', 'weatherA']

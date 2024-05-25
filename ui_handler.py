@@ -9,7 +9,7 @@ from data_processing import DataExtractor, filter_data
 from folium_map_generator import FoliumMap
 
 
-class UiFunction:
+class UiHandler:
     """
     The UiFunction class is responsible for handling the user interface (UI) functionality of the application.
     It includes methods for browsing and opening files, displaying data on a map, and applying filters to the data.
@@ -49,15 +49,17 @@ class UiFunction:
         open dataset file and load the information of the dataset.
         :return: None
         """
+        # set directory text
         file_path = self.ui.file_dir_text.text()
         try:
-            data_extractor = DataExtractor(file_path)
-            dataset_info = data_extractor.get_dataset_info()
-            self.ui.data_detail_showbox.setPlainText(dataset_info)
+            # load data
             self.data_extractor = DataExtractor(file_path)
+            # show data information
+            dataset_info = self.data_extractor.get_dataset_info()
+            self.ui.data_detail_showbox.setPlainText(dataset_info)
             self.filtered_data = self.data_extractor.data
-            self.min_speed_value, self.max_speed_value = data_extractor.speed_limit_range()
-            self.min_year_value, self.max_year_value = data_extractor.crash_year_range()
+            self.min_speed_value, self.max_speed_value = self.data_extractor.speed_limit_range()
+            self.min_year_value, self.max_year_value = self.data_extractor.crash_year_range()
             self.ui.min_speed.display(self.min_speed_value)
             self.ui.max_speed.display(self.max_speed_value)
             self.ui.min_year.display(self.min_year_value)
@@ -114,6 +116,7 @@ class UiFunction:
 
         :return:
         """
+        # define checkbox list
         light_checkboxes = [self.ui.bright_sun_box, self.ui.dark_box,
                             self.ui.overcast_box, self.ui.twilight_box, self.ui.light_unknown_box]
         road_light_checkboxes = [self.ui.null_box, self.ui.on_box, self.ui.off_box, self.ui.road_light_unknown_box]
@@ -122,6 +125,7 @@ class UiFunction:
         weather_checkboxes = [self.ui.fine_box, self.ui.heavy_rain_box, self.ui.light_rain_box, self.ui.snow_box,
                               self.ui.mist_or_fog_box,
                               self.ui.hail_or_sleet_box, self.ui.weather_unknown_box]
+        # iterate the checkbox list to filter data
         self.light_filter = [box.text() for box in light_checkboxes if box.isChecked()]
         self.road_light_filter = [box.text() for box in road_light_checkboxes if box.isChecked()]
         self.crash_severity_filter = [box.text() for box in crash_severity_checkboxes if box.isChecked()]
